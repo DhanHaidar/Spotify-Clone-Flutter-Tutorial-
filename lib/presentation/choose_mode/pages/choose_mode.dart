@@ -38,7 +38,7 @@ class ChooseModePage extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize: 25,
                   ),
                 ),
                 SizedBox(height: 40),
