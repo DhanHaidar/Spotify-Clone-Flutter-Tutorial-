@@ -16,6 +16,7 @@ dependencies:
   hydrated_bloc: 
   path_provider:
   firebase_core:
+  flutter_dotenv: 
 
 dev_dependencies:
   flutter_test:
