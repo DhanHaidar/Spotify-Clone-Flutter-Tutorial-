@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
   }
 
   static final FirebaseOptions android = FirebaseOptions(
-    apiKey: dotenv.env['ANDROID_API_KEY']!,
+    apiKey: 'AIzaSyAPcAFRJXM8srsF1XSf21zo3FWujJEoQKk',
     appId: '1:796452291568:android:01e2e89fb0050f9eddd335',
     messagingSenderId: '796452291568',
     projectId: 'spotify-clone-030201',
@@ -59,12 +59,11 @@ class DefaultFirebaseOptions {
   );
 
   static final FirebaseOptions ios = FirebaseOptions(
-    apiKey:  dotenv.env['IOS_API_KEY']!,
+    apiKey: 'AIzaSyCD9-FPsZ59sDXTS2sDCDAOHQCJjREdPAQ',
     appId: '1:796452291568:ios:f6dd2b6e8450ff05ddd335',
     messagingSenderId: '796452291568',
     projectId: 'spotify-clone-030201',
     storageBucket: 'spotify-clone-030201.firebasestorage.app',
     iosBundleId: 'com.example.spotifyclone',
   );
-
 }

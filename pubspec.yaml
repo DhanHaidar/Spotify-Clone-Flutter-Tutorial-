@@ -17,6 +17,9 @@ dependencies:
   path_provider:
   firebase_core:
   flutter_dotenv: 
+  firebase_auth:
+  get_it:
+  dartz:
 
 dev_dependencies:
   flutter_test:
