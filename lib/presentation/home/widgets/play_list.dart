@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotifyclone/common/helpers/is_dark_mode.dart';
@@ -110,6 +111,14 @@ class PlayList extends StatelessWidget {
             Row(
               children: [
                 Text(songs[index].duration.toString().replaceAll('.', ':')),
+                const SizedBox(width: 20),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.favorite_rounded,
+                    color: AppColors.darkGrey,
+                  ),
+                ),
               ],
             ),
           ],
