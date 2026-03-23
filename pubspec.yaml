@@ -17,9 +17,11 @@ dependencies:
   path_provider:
   firebase_core:
   flutter_dotenv: 
+  #supabase_flutter:
   firebase_auth:
   get_it:
   dartz:
+  cloud_firestore: 
 
 dev_dependencies:
   flutter_test:
