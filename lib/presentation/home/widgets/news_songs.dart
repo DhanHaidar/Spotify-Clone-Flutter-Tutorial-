@@ -6,6 +6,7 @@ import 'package:spotifyclone/core/configs/theme/app_colors.dart';
 import 'package:spotifyclone/domain/entities/song/song.dart';
 import 'package:spotifyclone/presentation/home/bloc/news_songs_cubit.dart';
 import 'package:spotifyclone/presentation/home/bloc/news_songs_state.dart';
+import 'package:spotifyclone/presentation/song_palyer/pages/song_player.dart';
 
 class NewsSongs extends StatelessWidget {
   const NewsSongs({super.key});
@@ -46,51 +47,63 @@ class NewsSongs extends StatelessWidget {
 
         final imageUrl = AppURLs.supabaseStorage + encodedFileName;
 
-        return SizedBox(
-          width: 160,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    image: DecorationImage(
-                      image: NetworkImage(imageUrl),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: Container(
-                      height: 40,
-                      width: 40,
-                      transform: Matrix4.translationValues(10, 10, 0),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: context.isDarkMode
-                            ? AppColors.darkGrey
-                            : const Color.fromARGB(255, 206, 205, 205),
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => SongPlayerPage(songEntity: songs[index],),
+              ),
+            );
+          },
+          child: SizedBox(
+            width: 160,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      image: DecorationImage(
+                        image: NetworkImage(imageUrl),
+                        fit: BoxFit.cover,
                       ),
-                      child: Icon(
-                        Icons.play_arrow_rounded,
-                        color: context.isDarkMode ? Colors.white : Colors.black,
+                    ),
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        height: 40,
+                        width: 40,
+                        transform: Matrix4.translationValues(10, 10, 0),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: context.isDarkMode
+                              ? AppColors.darkGrey
+                              : const Color.fromARGB(255, 206, 205, 205),
+                        ),
+                        child: Icon(
+                          Icons.play_arrow_rounded,
+                          color: context.isDarkMode
+                              ? Colors.white
+                              : Colors.black,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                songs[index].title,
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
-              ),
-              SizedBox(height: 5),
-              Text(
-                songs[index].artist,
-                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
-              ),
-            ],
+                SizedBox(height: 10),
+                Text(
+                  songs[index].title,
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  songs[index].artist,
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+                ),
+              ],
+            ),
           ),
         );
       },
